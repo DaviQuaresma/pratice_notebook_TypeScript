@@ -1,0 +1,4 @@
+
+
+def binarySearch():
+    return
