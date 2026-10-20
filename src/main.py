@@ -1,11 +1,12 @@
-from entendendo_algoritmos.binary_search import binarySearch
+from entendendo_algoritmos.binary_tree_search import Node
+from entendendo_algoritmos.selection_ordenation import ordenation
 
 
 def exe():
-    list = [1, 3, 6, 9, 13, 16]
-    item = 13
-
-    print(binarySearch(list, item))
+    # root = Node(10)
+    # root.insert_value(root, 20)
+    arr = [2, 7, 1, 9, 8, 6, 3]
+    print(ordenation(arr))
 
 
 if __name__ == "__main__":
