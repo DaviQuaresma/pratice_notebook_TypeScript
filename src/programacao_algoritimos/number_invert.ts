@@ -3,7 +3,7 @@
 // 12345 → 54321
 // Novamente, sem converter para string.
 
-export function numInvert(number: number) {
+export function numInvert(number: number): number {
   let invertedNum = 0;
   let tempNum = number;
 
@@ -12,10 +12,9 @@ export function numInvert(number: number) {
     let totalDigitos = Math.floor(Math.log10(Math.abs(tempNum)));
     invertedNum += last * 10 ** totalDigitos;
     tempNum = Math.floor(tempNum / 10);
-    console.log(`(${last} X 10 ** ${totalDigitos})`);
   }
 
-  console.log(invertedNum);
+  return invertedNum;
 }
 
 function lastDigit(num: number): number {
