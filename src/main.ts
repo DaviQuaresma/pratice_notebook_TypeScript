@@ -1,7 +1,7 @@
-import { numInvert } from "./programacao_algoritimos/number_invert";
+import { fibonacci } from "./programacao_algoritimos/fibonacci";
 
 function exe() {
-  numInvert(12345)
+    console.log(fibonacci(45));
 }
 
 exe();
