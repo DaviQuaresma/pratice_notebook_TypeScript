@@ -1,8 +1,8 @@
-from entendendo_algoritmos.euclides_algoritim import mdc
+from entendendo_algoritmos.recursion import biggerValue
 
 
 def exe():
-    print(mdc(40, 24))
+    print(biggerValue([6, 2, 7, 9, 21]))
 
 
 if __name__ == "__main__":
