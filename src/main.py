@@ -1,8 +1,8 @@
-from entendendo_algoritmos.recursion import biggerValue
+from entendendo_algoritmos.quicksort import qsort
 
 
 def exe():
-    print(biggerValue([6, 2, 7, 9, 21]))
+    print(qsort([2, 6, 4, 1, 9, 5]))
 
 
 if __name__ == "__main__":
