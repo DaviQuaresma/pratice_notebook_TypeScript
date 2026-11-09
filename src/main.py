@@ -1,8 +1,8 @@
-from entendendo_algoritmos.quicksort import qsort
+from entendendo_algoritmos.multiply_recursive import multiply_table
 
 
 def exe():
-    print(qsort([2, 6, 4, 1, 9, 5]))
+    print(multiply_table([2, 3, 5]))
 
 
 if __name__ == "__main__":
