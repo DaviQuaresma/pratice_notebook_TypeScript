@@ -1,8 +1,8 @@
-from entendendo_algoritmos.multiply_recursive import multiply_table
+from entendendo_algoritmos.breadth_first_search import breadth_first
 
 
 def exe():
-    print(multiply_table([2, 3, 5]))
+    print(breadth_first())
 
 
 if __name__ == "__main__":
