@@ -1,8 +1,11 @@
-from entendendo_algoritmos.breadth_first_search import breadth_first
+from entendendo_algoritmos.dijkstra import dijkstra
 
 
 def exe():
-    print(breadth_first())
+    costs, parents = dijkstra()
+
+    print(costs)
+    print(parents)
 
 
 if __name__ == "__main__":
