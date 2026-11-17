@@ -1,14 +1,25 @@
-
 def found_on_lower_cost(costs, processed):
+    print("Procurando o custo mais baixo")
     lower_cost = float("inf")
     lower_cost_vertice = None
 
     for vertice in costs:
+        print(f"Vertice: {vertice}")
         cost = costs[vertice]
+        print(f"Custo de acordo com vertice: {cost}")
 
+        print(
+            "Se o lower_cost for menos que o cost e o vertice não tiver sido processado, ele entra na condicão"
+        )
         if cost < lower_cost and vertice not in processed:
+            print("Entrou")
+            print("Antigo lower_cost: ", lower_cost)
             lower_cost = cost
+            print("Novo lower_cost: ", lower_cost)
+
+            print("Antigo lower_cost_vertice: ", lower_cost_vertice)
             lower_cost_vertice = vertice
+            print("Novo lower_cost_vertice: ", lower_cost_vertice)
 
     return lower_cost_vertice
 
@@ -21,49 +32,76 @@ def dijkstra():
 
     # Grafo
     graph["inicio"] = {}
-    graph["inicio"]["A"] = 6
+    graph["inicio"]["A"] = 5
     graph["inicio"]["B"] = 2
 
     graph["A"] = {}
-    graph["A"]["fim"] = 1
+    graph["A"]["C"] = 4
+    graph["A"]["D"] = 2
 
     graph["B"] = {}
-    graph["B"]["A"] = 3
-    graph["B"]["fim"] = 5
+    graph["B"]["A"] = 8
+    graph["B"]["D"] = 7
+
+    graph["C"] = {}
+    graph["C"]["D"] = 6
+    graph["C"]["fim"] = 2
+
+    graph["D"] = {}
+    graph["D"]["fim"] = 1
 
     graph["fim"] = {}
 
-    # Custos
+    # Custos iniciais (apenas vizinhos diretos do "inicio" têm valores)
     costs = {}
-    costs["A"] = 6
+    costs["A"] = 5
     costs["B"] = 2
+    costs["C"] = infinity
+    costs["D"] = infinity
     costs["fim"] = infinity
 
-    # Pais
+    # Pais iniciais (apenas vizinhos diretos têm "inicio" como pai)
     parents = {}
     parents["A"] = "inicio"
     parents["B"] = "inicio"
+    parents["C"] = None
+    parents["D"] = None
     parents["fim"] = None
 
     # Algoritmo
     vertice = found_on_lower_cost(costs, processed)
+    print("Retorna o vertice da função: ", vertice)
 
     while vertice is not None:
+        print("Enquanto vertice is not None, ele roda")
         cost = costs[vertice]
+        print("O custo atual de acordo com o vertice: ", cost)
         neighbors = graph[vertice]
+        print("Os vizinhos atuais de acordo com o grafo[vertice]: ", neighbors)
 
         for n in neighbors:
+            print("Iteração dentro dos vizinhos: ", n)
             new_cost = cost + neighbors[n]
+            print("Novo new_cost que é igual a cost atual + neighbors[n]")
 
+            print(
+                "Se o costs[n] que é o cost da iteração for maior que o new_cost ele vai entrar na condição e atualizar os costs e parents"
+            )
             if costs[n] > new_cost:
+                print("Atualizando new_cost, antes: ", new_cost)
                 costs[n] = new_cost
+                print("Atualizando new_cost, depois: ", new_cost)
+                print("Atualizando vertice, antes: ", vertice)
                 parents[n] = vertice
+                print("Atualizando vertice, depois: ", vertice)
 
+        print("Appendando um vertice aos processados para ir ao outro vertice")
         processed.append(vertice)
 
         vertice = found_on_lower_cost(costs, processed)
 
     return costs, parents
+
 
 # Anotação sobre dificuldade no entendimento de atualização de parents:
 
