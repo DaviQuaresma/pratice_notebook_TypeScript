@@ -36,26 +36,24 @@ def dijkstra():
     graph["inicio"]["B"] = 2
 
     graph["A"] = {}
-    graph["A"]["C"] = 4
-    graph["A"]["D"] = 2
+    graph["A"]["B"] = 10
 
     graph["B"] = {}
-    graph["B"]["A"] = 8
-    graph["B"]["D"] = 7
+    graph["B"]["C"] = 20
 
     graph["C"] = {}
-    graph["C"]["D"] = 6
-    graph["C"]["fim"] = 2
+    graph["C"]["D"] = 1
+    graph["C"]["fim"] = 30
 
     graph["D"] = {}
-    graph["D"]["fim"] = 1
+    graph["D"]["A"] = 1
 
     graph["fim"] = {}
 
     # Custos iniciais (apenas vizinhos diretos do "inicio" têm valores)
     costs = {}
     costs["A"] = 5
-    costs["B"] = 2
+    costs["B"] = infinity
     costs["C"] = infinity
     costs["D"] = infinity
     costs["fim"] = infinity
@@ -63,7 +61,7 @@ def dijkstra():
     # Pais iniciais (apenas vizinhos diretos têm "inicio" como pai)
     parents = {}
     parents["A"] = "inicio"
-    parents["B"] = "inicio"
+    parents["B"] = None
     parents["C"] = None
     parents["D"] = None
     parents["fim"] = None
